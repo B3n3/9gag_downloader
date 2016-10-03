@@ -9,6 +9,7 @@ import re
 import io
 import sys
 import os
+import time
 
 VALID_CHARS = '-_.() abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 URL_PREFIX = 'http://9gag.com'
@@ -94,6 +95,10 @@ while True:
         URL = nextUrl
     else:
         break
+
+    #sleep for 5 seconds to not exceed the max number of requests
+    #9GAG somehow restricted too many requests
+    time.sleep(5)
 
 print "\nFinished!!!"
 

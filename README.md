@@ -17,6 +17,8 @@ Remember that you can only download publicly available posts.
 This means if you want to download eg. your upvotes, but your upvotes are *private*, the script will not be able to see them.
 A simple solution would be to temporarily set them to *public*.
 
+9GAG restricts the requests per minute, this is why I had to add a delay inbetween loading more posts.
+
 
 Requirements:
 =============
@@ -25,6 +27,7 @@ Requirements:
 * io
 * sys
 * os
+* time
 
 
 Known issues:
