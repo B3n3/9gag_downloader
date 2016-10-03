@@ -36,9 +36,18 @@ def download_file(url, name, extension):
     dw = requests.get(url)
     if dw.status_code == requests.codes.ok:
         name = sanitize_filename(name)
-        print "Downloading " + url + "   " + name + "." + extension
+        path = DW_DIR + "/" + name + "." + extension
+        i = 1
+        while True:
+            if os.path.exists(path):
+                path = DW_DIR + "/" + name + "_" + str(i) + "." + extension
+                i = i + 1
+            else:
+                break
+        print "Downloading " + url + "   " + path
+
         binary = io.BytesIO(dw.content)
-        img = open(DW_DIR + "/" + name + "." + extension, 'w')
+        img = open(path, 'w')
         img.write(binary.read())
         img.close()
 
