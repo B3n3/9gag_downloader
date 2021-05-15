@@ -14,4 +14,5 @@ const download_b3n3_9gag_csv = function (csvString) {
     document.body.removeChild(link);
 };
 
-download_b3n3_9gag_csv(b3n3_9gag_downloader_csv.join('\n'));
+// Perform the actual download.
+download_b3n3_9gag_csv(Array.from(b3n3_9gag_downloader_csv).join('\n'));
